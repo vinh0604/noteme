@@ -1,3 +1,5 @@
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 var path = require('path'),
     ROOT_PATH = path.resolve(__dirname);
 
@@ -7,6 +9,7 @@ module.exports = {
         path: path.resolve(ROOT_PATH, 'build'),
         filename: 'bundle.js'
     },
+    // devtool: "source-map",
     module: {
         loaders: [
             {
@@ -21,8 +24,14 @@ module.exports = {
             },
             {
                 test: /src\/.+.scss$/,
-                loader: "style!css!sass"
+                // loader: ExtractTextPlugin.extract(
+                //     'css?sourceMap!sass?sourceMap'
+                // ),
+                loader: 'style!css!sass'
             }
         ]
     }
+    // plugins: [
+    //     new ExtractTextPlugin("bundle.css")
+    // ]
 }
