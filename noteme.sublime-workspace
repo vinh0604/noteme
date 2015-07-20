@@ -1,0 +1,787 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ver",
+				"verify"
+			],
+			[
+				"cla",
+				"cla	class .. end"
+			],
+			[
+				"veri",
+				"verified_by_phone"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "entry.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 13,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"pac l",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 976.0
+	},
+	"console":
+	{
+		"height": 124.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			" import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/vinhbachsy/experiments/noteme"
+	],
+	"file_history":
+	[
+		"/Users/vinhbachsy/contributions/charity-map.org/Gemfile",
+		"/Users/vinhbachsy/contributions/charity-map.org/config/routes.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/assets/stylesheets/bootstrap.css.scss",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/views/admin/users/index.html.haml",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/uploaders/photo_uploader.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/spec/api/projects_spec.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/spec/spec_helper.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/spec/strategies/id_photo_verification_strategy_spec.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/db/schema.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/assets/stylesheets/bootstrap_old.css",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/assets/stylesheets/application.css",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/assets/javascripts/application.js",
+		"/Users/vinhbachsy/contributions/charity-map.org/features/users.feature",
+		"/Users/vinhbachsy/contributions/charity-map.org/spec/factories/users.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/controllers/admin/users_controller.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/Guardfile",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/controllers/admin/pages_controller.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/controllers/projects_controller.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/helpers/sessions_helper.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/features/step_definitions/admin_steps.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/spec/models/users_spec.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/controllers/admin/base_controller.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/views/admin/pages/_navigation.html.haml",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/models/user.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/views/layouts/item-based.html.haml",
+		"/Users/vinhbachsy/contributions/charity-map.org/features/admin_users.feature",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/strategies/verification_strategy.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/strategies/id_photo_verification_strategy.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/.gitignore",
+		"/Users/vinhbachsy/contributions/charity-map.org/.env.sample",
+		"/Users/vinhbachsy/contributions/charity-map.org/features/step_definitions/web_steps.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/controllers/users_controller.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/app/controllers/pages_controller.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/script/cucumber",
+		"/Users/vinhbachsy/contributions/charity-map.org/features/support/env.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/config/initializers/carrierwave.rb",
+		"/Users/vinhbachsy/contributions/charity-map.org/.env",
+		"/Users/vinhbachsy/experiments/noteme/index.html"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+			"",
+			"/Users/vinhbachsy/contributions/charity-map.org/features/step_definitions",
+			"/Users/vinhbachsy/contributions/charity-map.org/features/step_definations",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"with the id",
+			"verified_user?",
+			"boots",
+			":index",
+			"verified_by_phone",
+			"scope",
+			"admin",
+			"trunc",
+			"%th",
+			"th",
+			"go to",
+			"Scenerio",
+			"there is",
+			"a user",
+			"there is a user",
+			"\"",
+			"maintain_test_schema",
+			"all_on_start",
+			"verified_by_phone",
+			"verified_user",
+			"id_photo",
+			"id_phôt",
+			"API_CREATE_USER_TOKEN",
+			"ENV[",
+			"ENVư",
+			"ENV",
+			"http_authenticate",
+			"authenticate_user",
+			"watch(%r{^spec/.+_spec\\.rb$})\n  watch(%r{^lib/(.+)\\.rb$})     { |m| \"spec/lib/#{m[1]}_spec.rb\" }\n  watch('spec/spec_helper.rb')  { \"spec\" }\n\n  # Rails example\n  watch(%r{^app/(.+)\\.rb$})                           { |m| \"spec/#{m[1]}_spec.rb\" }\n  watch(%r{^app/(.*)(\\.erb|\\.haml)$})                 { |m| \"spec/#{m[1]}#{m[2]}_spec.rb\" }\n  watch(%r{^app/controllers/(.+)_(controller)\\.rb$})  { |m| [\"spec/routing/#{m[1]}_routing_spec.rb\", \"spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb\", \"spec/acceptance/#{m[1]}_spec.rb\"] }\n  watch(%r{^spec/support/(.+)\\.rb$})                  { \"spec\" }\n  watch('config/routes.rb')                           { \"spec/routing\" }\n  watch('app/controllers/application_controller.rb')  { \"spec/controllers\" }\n\n  # Capybara features specs\n  watch(%r{^app/views/(.+)/.*\\.(erb|haml)$})          { |m| \"spec/features/#{m[1]}_spec.rb\" }\n\n  # Turnip features and steps\n  watch(%r{^spec/acceptance/(.+)\\.feature$})\n  watch(%r{^spec/acceptance/steps/(.+)_steps\\.rb$})   { |m| Dir[File.join(\"**/#{m[1]}.feature\")][0] || 'spec/acceptance' }",
+			".rb  Update Powerline fonts repo URLs  6 months ago"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"apply_syntax_touched": true,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "entry.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"_anf_new": "",
+							"apply_syntax_touched": true,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"_anf_new": "",
+							"apply_syntax_touched": true,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": true,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 120.0
+	},
+	"pinned_build_system": "",
+	"project": "noteme.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"admin",
+				"features/admin_users.feature"
+			],
+			[
+				"userfe",
+				"features/users.feature"
+			],
+			[
+				"projecon",
+				"app/controllers/projects_controller.rb"
+			],
+			[
+				"adminpage",
+				"app/controllers/admin/pages_controller.rb"
+			],
+			[
+				"pages",
+				"app/controllers/pages_controller.rb"
+			],
+			[
+				"boo.css",
+				"app/assets/stylesheets/bootstrap.css.scss"
+			],
+			[
+				"layoutitem",
+				"app/views/layouts/item-based.html.haml"
+			],
+			[
+				"userindex.",
+				"app/views/admin/users/index.html.haml"
+			],
+			[
+				"bootstrap_old",
+				"app/assets/stylesheets/bootstrap_old.css"
+			],
+			[
+				"appcs",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"appl",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"guar",
+				"Guardfile"
+			],
+			[
+				"cucum",
+				"script/cucumber"
+			],
+			[
+				"idp",
+				"app/strategies/id_photo_verification_strategy.rb"
+			],
+			[
+				"sche",
+				"db/schema.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"adminus",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"factous",
+				"spec/factories/users.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"base",
+				"app/controllers/admin/base_controller.rb"
+			],
+			[
+				"adminuser",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"projsp",
+				"spec/api/projects_spec.rb"
+			],
+			[
+				"usersp",
+				"spec/models/users_spec.rb"
+			],
+			[
+				"projspe",
+				"spec/api/projects_spec.rb"
+			],
+			[
+				"spec",
+				"spec/spec_helper.rb"
+			],
+			[
+				"carr",
+				"config/initializers/carrierwave.rb"
+			],
+			[
+				"pageuser",
+				"app/views/admin/pages/users.html.haml"
+			],
+			[
+				"photo",
+				"app/uploaders/photo_uploader.rb"
+			],
+			[
+				"us",
+				"app/models/user.rb"
+			],
+			[
+				"gemf",
+				"Gemfile"
+			],
+			[
+				"gua",
+				"Guardfile"
+			],
+			[
+				"sess",
+				"app/helpers/sessions_helper.rb"
+			],
+			[
+				".en",
+				".env"
+			],
+			[
+				"facuser",
+				"spec/factories/users.rb"
+			],
+			[
+				"spech",
+				"spec/spec_helper.rb"
+			],
+			[
+				"user_spe",
+				"spec/models/users_spec.rb"
+			],
+			[
+				"projectcon",
+				"app/controllers/projects_controller.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"schema",
+				"db/schema.rb"
+			],
+			[
+				".git",
+				".gitignore"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"vintage":
+		{
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
