@@ -1,7 +1,12 @@
 import "./stylesheets/base.scss";
-import component from './javascripts/component';
+import React from 'react';
+import App from './javascripts/components/App';
 
-var app = document.createElement('div');
+main();
 
-document.body.appendChild(app);
-app.appendChild(component());
+function main() {
+    let app = document.createElement('div');
+    document.body.appendChild(app);
+
+    React.render(<App />, app);
+}

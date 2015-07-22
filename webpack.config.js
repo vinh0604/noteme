@@ -16,12 +16,18 @@ var common = {
         loaders: [
             {
                 test: /\.js$/,
-                include: path.resolve(ROOT_PATH, 'src'),
+                include: [
+                    path.resolve(ROOT_PATH, 'src'),
+                    path.resolve(ROOT_PATH, 'test')
+                ],
                 loader: "babel-loader"
             },
             {
                 test: /\.jsx$/,
-                include: path.resolve(ROOT_PATH, 'src'),
+                include: [
+                    path.resolve(ROOT_PATH, 'src'),
+                    path.resolve(ROOT_PATH, 'test')
+                ],
                 loaders: ["react-hot-loader", "babel-loader"]
             },
             {
@@ -33,6 +39,9 @@ var common = {
                 loader: 'style!css!sass'
             }
         ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     }
     // plugins: [
     //     new ExtractTextPlugin("bundle.css")
