@@ -1,25 +1,25 @@
 import React from 'react'
 import TestUtils from 'react/lib/ReactTestUtils'
 import expect from 'expect'
-import App from '../../../src/javascripts/components/App'
 import Sidebar from '../../../src/javascripts/components/Sidebar'
-import MainPanel from '../../../src/javascripts/components/MainPanel'
+import Topbar from '../../../src/javascripts/components/Topbar'
+import NoteList from '../../../src/javascripts/components/NoteList'
 
-describe('app', () => {
+describe('sidebar', () => {
     var renderer;
 
     beforeEach(() => {
         renderer = TestUtils.createRenderer();
-        renderer.render(<App />)
+        renderer.render(<Sidebar />)
     });
 
-    it('has sidebar and main panel', () => {
+    it('has top bar and note list', () => {
         let result = renderer.getRenderOutput();
 
         expect(result).toEqual(
             <div>
-                <Sidebar />
-                <MainPanel />
+                <Topbar />
+                <NoteList />
             </div>
         );
     })

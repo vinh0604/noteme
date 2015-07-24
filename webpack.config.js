@@ -11,7 +11,7 @@ var common = {
         path: path.resolve(ROOT_PATH, 'build'),
         filename: 'bundle.js'
     },
-    // devtool: "source-map",
+    devtool: 'inline-source-map',
     module: {
         loaders: [
             {
