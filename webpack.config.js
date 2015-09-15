@@ -12,6 +12,9 @@ var common = {
         filename: 'bundle.js'
     },
     devtool: 'inline-source-map',
+    resolve: {
+        modulesDirectories: ['node_modules']
+    },
     module: {
         loaders: [
             {
@@ -31,12 +34,20 @@ var common = {
                 loaders: ["react-hot-loader", "babel-loader"]
             },
             {
-                test: /.scss$/,
+                test: /\.scss$/,
                 // loader: ExtractTextPlugin.extract(
                 //     'css?sourceMap!sass?sourceMap'
                 // ),
                 include: path.resolve(ROOT_PATH, 'src'),
-                loader: 'style!css!sass'
+                loader: "style!css!sass?sourceMap"
+            },
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "url-loader?limit=10000&minetype=application/font-woff"
+            },
+            {
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader"
             }
         ]
     },

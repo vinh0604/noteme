@@ -3,9 +3,9 @@ var webpackConfig = require('./webpack.config');
 
 module.exports = function (config) {
   config.set({
-    browsers: [ 'Chrome' ],
+    browsers: [ 'PhantomJS' ],
     singleRun: true,
-    frameworks: [ 'mocha' ],
+    frameworks: [ 'jasmine' ],
     files: [
       'tests.webpack.js'
     ],

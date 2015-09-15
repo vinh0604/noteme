@@ -1,6 +1,5 @@
 import React from 'react'
 import TestUtils from 'react/lib/ReactTestUtils'
-import expect from 'expect'
 import App from '../../../src/javascripts/components/App'
 import Sidebar from '../../../src/javascripts/components/Sidebar'
 import MainPanel from '../../../src/javascripts/components/MainPanel'

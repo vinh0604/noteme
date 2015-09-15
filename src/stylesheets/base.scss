@@ -1,6 +1,242 @@
-body {
+@import "~purecss/build/pure";
+@import "~purecss/build/grids-responsive";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+@import "./colors";
+
+html {
+  font-size: 12px;
 }
 
-h1 {
-    color: red;
+.selectivity-width-detector {
+  width: 40px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+%arrow {
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid $light-black;
+  z-index: 1046;
+  background-color: $white;
+  box-sizing: border-box;
+
+  &:after, &:before {
+    bottom: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-bottom-color: $white;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+
+  &:before {
+    border-bottom-color: $light-black;
+    border-width: 12px;
+    margin-left: -12px;
+  }
+}
+
+.sidebar {
+  width: 300px;
+  display: inline-block;
+  border-right: solid 1px $light-gray;
+
+  .selectivity-input {
+    width: 100%;
+  }
+
+  &__topbar {
+    padding: 10px 0 10px 10px;
+    display: flex;
+    position: relative;
+    border-bottom: solid 1px $light-gray;
+
+    &__search-widget {
+      vertical-align: middle;
+      white-space: nowrap;
+      position: relative;
+      width: 223px;
+
+      input[type="text"] {
+        border-radius: 5px;
+        border: solid 1px $light-gray;
+        padding: 10px 10px 10px 30px;
+        box-sizing: border-box;
+        width: 100%;
+
+        &:focus {
+          border-color: $light-black;
+          outline-color: transparent;
+          outline-style: none;
+        }
+      }
+
+      i {
+        position: absolute;
+        top: 11px;
+        left: 11px;
+      }
+    }
+
+    &__buttons {
+      padding: 0;
+      margin-left: 10px;
+
+      li {
+        display: inline;
+        padding-right: 3px;
+        font-size: 1.2rem;
+      }
+      a {
+        text-decoration: none;
+        color: $gray;
+
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+
+    &__tags {
+      @extend %arrow;
+      width: 100%;
+      top: 50px;
+      left: 0;
+
+      &:after, &:before {
+        left: 250px;
+      }
+    }
+  }
+
+  &__list-container {
+    position: relative;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+
+    &__tags {
+      @extend %arrow;
+      width: 200px;
+      top: 0;
+      left: 212px;
+
+      &:after, &:before {
+        left: 30px;
+      }
+    }
+  }
+
+  &__item {
+    border-bottom: solid 1px $light-gray;
+    padding: 5px 10px;
+    color: $gray;
+    line-height: 20px;
+    position: relative;
+
+    &__title {
+      font-weight: 600;
+      margin: 0;
+      a {
+        color: $black;
+        text-decoration: none;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &--selected {
+      background-color: antiquewhite;
+    }
+
+    &--selected &__buttons {
+      display: block;
+    }
+
+    &__buttons {
+      padding: 0;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: none;
+
+      li {
+        display: inline;
+        padding-right: 3px;
+        font-size: 1.2rem;
+      }
+      a {
+        text-decoration: none;
+        color: $gray;
+
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+
+    &:hover &__buttons {
+      display: block;
+    }
+  }
+}
+
+.main {
+  margin: 0 10px;
+  width: calc(100% - 310px);
+  display: inline-block;
+  line-height: 20px;
+
+  &__title {
+    margin: 10px 0;
+    font-size: 2rem;
+  }
+
+  &__form {
+    &__input-title {
+      font-size: 2rem;
+      padding: 2px;
+      border: none;
+      border-bottom: solid 1px $light-gray;
+      transition: border 0.3s;
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+
+      &:focus {
+        border-bottom: solid 1px $light-black;
+        outline-color: transparent;
+        outline-style: none;
+      }
+    }
+
+    &__input-content {
+      border: none;
+      display: block;
+      width: 100%;
+      resize: none;
+
+      &:focus {
+        outline-color: transparent;
+        outline-style: none;
+      }
+    }
+  }
 }
