@@ -7,6 +7,7 @@ module.exports = function (config) {
     singleRun: true,
     frameworks: [ 'jasmine' ],
     files: [
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
       'tests.webpack.js'
     ],
     preprocessors: {
