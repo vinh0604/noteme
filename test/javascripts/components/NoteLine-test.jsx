@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import TestUtils from 'react/lib/ReactTestUtils'
 import NoteLine from '../../../src/javascripts/components/NoteLine'
 import Actions from '../../../src/javascripts/actions/index'
@@ -8,12 +9,12 @@ require('jasmine-jquery/lib/jasmine-jquery')
 
 describe('noteLine', () => {
     var note = { title: 'Note 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perspiciatis dolorum quia eveniet, sunt fugit? Optio sit officiis aliquid. Totam nulla adipisci, hic quis consectetur cumque in doloribus, officia quod.' };
-    var noteLine, renderedDOM;
+    var noteLine, renderedDOM, spy;
 
     beforeEach(() => {
-        var mockHandler = function () {}
-        noteLine = TestUtils.renderIntoDocument(<NoteLine note={note} onTagClick={mockHandler} />);
-        renderedDOM = () => React.findDOMNode(noteLine);
+        spy = jasmine.createSpy('spy');
+        noteLine = TestUtils.renderIntoDocument(<NoteLine note={note} onTagClick={spy} />);
+        renderedDOM = () => ReactDOM.findDOMNode(noteLine);
     })
 
     it('renders with a li element', () => {
@@ -70,10 +71,9 @@ describe('noteLine', () => {
     })
 
     it('trigger onTagClick handler when tag button is clicked', () => {
-        spyOn(noteLine.props, 'onTagClick')
         let rootElem = renderedDOM()
         let tagBtn = rootElem.querySelector('a[title="Tag"]')
         TestUtils.Simulate.click(tagBtn)
-        expect(noteLine.props.onTagClick).toHaveBeenCalledWith(note, $(rootElem).position())
+        expect(spy).toHaveBeenCalledWith(note, $(rootElem).position())
     })
 })

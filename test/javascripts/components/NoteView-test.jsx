@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import TestUtils from 'react/lib/ReactTestUtils'
 import NoteView from '../../../src/javascripts/components/NoteView'
 
@@ -9,7 +10,7 @@ describe('noteView', function () {
         let note = { title: 'Note 1', content: 'Note **content** 1' }
 
         noteView = TestUtils.renderIntoDocument(<NoteView note={note} />)
-        renderedDOM = () => React.findDOMNode(noteView)
+        renderedDOM = () => ReactDOM.findDOMNode(noteView)
     })
 
     it('renders with a h4 title', function () {

@@ -4,7 +4,7 @@ var webpackConfig = require('./webpack.config');
 module.exports = function (config) {
   config.set({
     browsers: [ 'PhantomJS' ],
-    singleRun: true,
+    singleRun: false,
     frameworks: [ 'jasmine' ],
     files: [
       './node_modules/phantomjs-polyfill/bind-polyfill.js',

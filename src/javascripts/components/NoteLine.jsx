@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Utils from '../utils'
 import Actions from '../actions/index'
 import _ from 'lodash'
@@ -22,7 +23,7 @@ export default class NoteLine extends React.Component {
     handleTagClick(event) {
         event.preventDefault()
 
-        let elem = React.findDOMNode(this)
+        let elem = ReactDOM.findDOMNode(this)
         _.isFunction(this.props.onTagClick) &&
             this.props.onTagClick(this.props.note, $(elem).position())
     }

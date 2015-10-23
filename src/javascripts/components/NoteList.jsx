@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Reflux from 'reflux'
 import NoteLine from './NoteLine'
 import SelectedNoteStore from '../stores/SelectedNoteStore'
@@ -9,7 +10,6 @@ export default React.createClass({
     getInitialState() {
         return {
             selectedNote: {},
-            notes: this.props.notes,
             tags: this.props.tags || [],
             popupStyle: { display: 'none' }
         }
@@ -21,7 +21,7 @@ export default React.createClass({
         this.listenTo(SelectedNoteStore, this.onSelectedNoteChange)
     },
     handleTagClick(note, position) {
-        let $elem = $(React.findDOMNode(this.refs.tagPopup))
+        let $elem = $(ReactDOM.findDOMNode(this.refs.tagPopup))
         if (this.state.popupStyle.display === 'block' && note.id === this.state.selectedNote.id) {
             this.setState({
                 popupStyle: { display: 'none' }
@@ -39,7 +39,7 @@ export default React.createClass({
     render() {
         return (<div>
                     <ul>
-                        {this.state.notes.map(function (note) {
+                        {this.props.notes.map(function (note) {
                             return (<NoteLine key={note.id} note={note} selected={note.id === this.state.selectedNote.id} onTagClick={this.handleTagClick} />);
                         }, this)}
                     </ul>,

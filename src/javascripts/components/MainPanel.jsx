@@ -12,7 +12,9 @@ export default class MainPanel extends React.Component {
     }
     render() {
         var element;
-        if (this.state.editMode) {
+        if (!this.props.note) {
+            element = '';
+        } else if (this.state.editMode) {
             element = (<NoteForm note={this.props.note} />)
         } else {
             element = (<NoteView note={this.props.note} onEdit={this.toggleEditMode.bind(this)}/>)

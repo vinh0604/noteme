@@ -4,5 +4,6 @@ export default Reflux.createActions([
     "editNote",
     "selectNote",
     "deleteNote",
-    "archiveNote"
+    "archiveNote",
+    "saveNote"
 ])

@@ -1,15 +1,17 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import TestUtils from 'react/lib/ReactTestUtils'
+import Actions from '../../../src/javascripts/actions/index'
 import NoteForm from '../../../src/javascripts/components/NoteForm'
 
 describe('noteForm', function () {
-    let noteForm, renderedDOM;
+    let note, noteForm, renderedDOM;
 
     beforeEach(function () {
-        let note = { title: 'Note 1', content: 'Note **content** 1' }
+        note = { title: 'Note 1', content: 'Note **content** 1' }
 
         noteForm = TestUtils.renderIntoDocument(<NoteForm note={note} />)
-        renderedDOM = () => React.findDOMNode(noteForm)
+        renderedDOM = () => ReactDOM.findDOMNode(noteForm)
     })
 
     it('renders title into text input', function () {
@@ -22,5 +24,29 @@ describe('noteForm', function () {
         let rootElem = renderedDOM()
         let contentElem = rootElem.querySelector('textarea[name="content"]')
         expect(contentElem.value).toEqual('Note **content** 1')
+    })
+
+    it('dispatchs saveNote action when title is blur', function () {
+        spyOn(Actions, 'saveNote')
+        let rootElem = renderedDOM()
+        let titleElem = rootElem.querySelector('input[name="title"]')
+        titleElem.value = "Note 123"
+        TestUtils.Simulate.blur(titleElem)
+        expect(Actions.saveNote).toHaveBeenCalledWith({
+            title: 'Note 123',
+            content: 'Note **content** 1'
+        })
+    })
+
+    it('dispatchs saveNote action when content is blur', function () {
+        spyOn(Actions, 'saveNote')
+        let rootElem = renderedDOM()
+        let contentElem = rootElem.querySelector('textarea[name="content"]')
+        contentElem.value = "Note **content** 123"
+        TestUtils.Simulate.blur(contentElem)
+        expect(Actions.saveNote).toHaveBeenCalledWith({
+            title: 'Note 1',
+            content: 'Note **content** 123'
+        })
     })
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import TestUtils from 'react/lib/ReactTestUtils'
 import MainPanel from '../../../src/javascripts/components/MainPanel'
 import NoteView from '../../../src/javascripts/components/NoteView'
@@ -12,7 +13,7 @@ describe('mainPanel', () => {
     var mainPanel, renderedDOM, renderer;
 
     beforeEach(() => {
-        renderedDOM = () => React.findDOMNode(mainPanel)
+        renderedDOM = () => ReactDOM.findDOMNode(mainPanel)
     })
 
     it('renders note view by default', () => {
@@ -32,5 +33,11 @@ describe('mainPanel', () => {
         let contentElem = rootElem.querySelector('textarea[name="content"]')
         expect(titleElem).toExist()
         expect(contentElem).toExist()
+    })
+
+    it('does not render the view if there is no note', function () {
+        mainPanel = TestUtils.renderIntoDocument(<MainPanel note={null} />)
+        let rootElem = renderedDOM()
+        expect(rootElem.innerHTML).toEqual('')
     })
 })

@@ -1,7 +1,7 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import TestUtils from 'react/lib/ReactTestUtils'
 import NoteList from '../../../src/javascripts/components/NoteList'
-import NoteLine from '../../../src/javascripts/components/NoteLine'
 import $ from 'jquery'
 window.jQuery = $
 require('jasmine-jquery/lib/jasmine-jquery')
@@ -15,7 +15,7 @@ describe('noteList', () => {
 
     beforeEach(() => {
         noteList = TestUtils.renderIntoDocument(<NoteList notes={exampleNotes} />)
-        renderedDOM = () => React.findDOMNode(noteList)
+        renderedDOM = () => ReactDOM.findDOMNode(noteList)
     });
 
     it('renders correct list of note lines', () => {
