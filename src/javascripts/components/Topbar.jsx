@@ -6,11 +6,15 @@ export default class Topbar extends React.Component {
         Actions.addNote()
     }
 
+    searchNote(event) {
+        Actions.searchNote(event.target.value)
+    }
+
     render() {
         return (
             <div className="sidebar__topbar">
                 <div className="sidebar__topbar__search-widget">
-                    <input type="text" name="keyword" id="keyword" placeholder="Search note..." />
+                    <input type="text" name="keyword" id="keyword" placeholder="Search note..." onChange={this.searchNote.bind(this)}/>
                     <i className="fa fa-search"></i>
                 </div>
                 <ul className="sidebar__topbar__buttons">

@@ -31,4 +31,13 @@ describe('topbar', () => {
         TestUtils.Simulate.click(addElem)
         expect(Actions.addNote).toHaveBeenCalled()
     })
+
+    it('dispatches searchNote action when search text changed', function () {
+        spyOn(Actions, 'searchNote')
+        let rootElem = renderedDOM()
+        let searchElem = rootElem.querySelector('input[name="keyword"]')
+        searchElem.value = 'Note'
+        TestUtils.Simulate.change(searchElem)
+        expect(Actions.searchNote).toHaveBeenCalledWith('Note')
+    })
 })
