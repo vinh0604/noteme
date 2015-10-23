@@ -40,4 +40,14 @@ describe('topbar', () => {
         TestUtils.Simulate.change(searchElem)
         expect(Actions.searchNote).toHaveBeenCalledWith('Note')
     })
+
+    it('show tags dialog when tag button is clicked', function () {
+        let rootElem = renderedDOM()
+        let tagsPopupElem = rootElem.querySelector('.sidebar__topbar__tags')
+        expect(tagsPopupElem).toHaveCss({ display: 'none' })
+
+        let tagElem = rootElem.querySelector('.sidebar__topbar__buttons .fa-tags')
+        TestUtils.Simulate.click(tagElem)
+        expect(tagsPopupElem).toHaveCss({ display: 'block' })
+    })
 })
