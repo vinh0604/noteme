@@ -26,7 +26,7 @@ describe('noteForm', function () {
         expect(contentElem.value).toEqual('Note **content** 1')
     })
 
-    it('dispatchs saveNote action when title is blur', function () {
+    it('dispatches saveNote action when title is blur', function () {
         spyOn(Actions, 'saveNote')
         let rootElem = renderedDOM()
         let titleElem = rootElem.querySelector('input[name="title"]')
@@ -38,7 +38,7 @@ describe('noteForm', function () {
         })
     })
 
-    it('dispatchs saveNote action when content is blur', function () {
+    it('dispatches saveNote action when content is blur', function () {
         spyOn(Actions, 'saveNote')
         let rootElem = renderedDOM()
         let contentElem = rootElem.querySelector('textarea[name="content"]')
