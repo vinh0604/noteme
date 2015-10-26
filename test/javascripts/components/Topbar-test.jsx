@@ -39,7 +39,7 @@ describe('topbar', () => {
         let searchElem = rootElem.querySelector('input[name="keyword"]')
         searchElem.value = 'Note'
         TestUtils.Simulate.change(searchElem)
-        expect(Actions.searchNote).toHaveBeenCalledWith('Note')
+        expect(Actions.searchNote).toHaveBeenCalledWith('Note', [])
     })
 
     it('shows tags dialog when tag button is clicked', function () {
@@ -57,5 +57,13 @@ describe('topbar', () => {
         let tagSelectElem = rootElem.querySelector('select[name="tags"]')
         expect(tagSelectElem.querySelector('option[value="hello"]')).not.toBeNull()
         expect(tagSelectElem.querySelector('option[value="world"]')).not.toBeNull()
+    })
+
+    it('dispatches searchNote when tag is selected', function () {
+        spyOn(Actions, 'searchNote')
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+        TestUtils.Simulate.change(tagSelectElem, { target: { value: ['hello'] } })
+        expect(Actions.searchNote).toHaveBeenCalledWith('', ['hello'])
     })
 })

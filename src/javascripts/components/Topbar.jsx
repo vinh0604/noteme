@@ -5,7 +5,9 @@ export default class Topbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            popupStyle: { display: 'none' }
+            popupStyle: { display: 'none' },
+            keyword: '',
+            selectedTags: []
         }
     }
 
@@ -13,8 +15,20 @@ export default class Topbar extends React.Component {
         Actions.addNote()
     }
 
-    searchNote(event) {
-        Actions.searchNote(event.target.value)
+    searchNote() {
+        Actions.searchNote(this.state.keyword, this.state.selectedTags)
+    }
+
+    onKeywordChanged(event) {
+        this.setState({ keyword: event.target.value }, function () {
+            this.searchNote()
+        })
+    }
+
+    onTagsChanged(event) {
+        this.setState({ selectedTags: event.target.value }, function () {
+            this.searchNote()
+        })
     }
 
     toggleTagPopup() {
@@ -29,7 +43,7 @@ export default class Topbar extends React.Component {
         return (
             <div className="sidebar__topbar">
                 <div className="sidebar__topbar__search-widget">
-                    <input type="text" name="keyword" id="keyword" placeholder="Search note..." onChange={this.searchNote.bind(this)}/>
+                    <input type="text" name="keyword" id="keyword" placeholder="Search note..." onChange={this.onKeywordChanged.bind(this)}/>
                     <i className="fa fa-search"></i>
                 </div>
                 <ul className="sidebar__topbar__buttons">
@@ -41,7 +55,7 @@ export default class Topbar extends React.Component {
                     </li>
                 </ul>
                 <div className="sidebar__topbar__tags" style={this.state.popupStyle}>
-                    <select name="tags" id="tags" multiple="multiple" data-placeholder="Filter tags...">
+                    <select name="tags" id="tags" multiple="multiple" data-placeholder="Filter tags..." onChange={this.onTagsChanged.bind(this)}>
                         {this.props.tags.map(function (tag) {
                             return (<option key={tag} value={tag}>{tag}</option>)
                         })}
