@@ -6,11 +6,12 @@ import NoteList from '../../../src/javascripts/components/NoteList'
 
 describe('sidebar', () => {
     var renderer;
+    var tags = ['hello', 'world'];
     var notes = [{ title: 'Note 1', content: 'Note **content** 1' }]
 
     beforeEach(() => {
         renderer = TestUtils.createRenderer();
-        renderer.render(<Sidebar notes={notes} />)
+        renderer.render(<Sidebar notes={notes} tags={tags} />)
     });
 
     it('has top bar and note list', () => {
@@ -18,7 +19,7 @@ describe('sidebar', () => {
 
         expect(result).toEqual(
             <div>
-                <Topbar notes={notes}/>
+                <Topbar tags={tags}/>
                 <NoteList notes={notes}/>
             </div>
         );

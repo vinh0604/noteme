@@ -42,6 +42,9 @@ export default class Topbar extends React.Component {
                 </ul>
                 <div className="sidebar__topbar__tags" style={this.state.popupStyle}>
                     <select name="tags" id="tags" multiple="multiple" data-placeholder="Filter tags...">
+                        {this.props.tags.map(function (tag) {
+                            return (<option key={tag} value={tag}>{tag}</option>)
+                        })}
                     </select>
                 </div>
             </div>);

@@ -6,9 +6,10 @@ import Actions from '../../../src/javascripts/actions/index'
 
 describe('topbar', () => {
     let topbar, renderedDOM;
+    let tags = ["hello", "world"];
 
     beforeEach(function () {
-        topbar = TestUtils.renderIntoDocument(<Topbar />)
+        topbar = TestUtils.renderIntoDocument(<Topbar tags={tags} />)
         renderedDOM = () => ReactDOM.findDOMNode(topbar)
     })
 
@@ -41,7 +42,7 @@ describe('topbar', () => {
         expect(Actions.searchNote).toHaveBeenCalledWith('Note')
     })
 
-    it('show tags dialog when tag button is clicked', function () {
+    it('shows tags dialog when tag button is clicked', function () {
         let rootElem = renderedDOM()
         let tagsPopupElem = rootElem.querySelector('.sidebar__topbar__tags')
         expect(tagsPopupElem).toHaveCss({ display: 'none' })
@@ -49,5 +50,12 @@ describe('topbar', () => {
         let tagElem = rootElem.querySelector('.sidebar__topbar__buttons .fa-tags')
         TestUtils.Simulate.click(tagElem)
         expect(tagsPopupElem).toHaveCss({ display: 'block' })
+    })
+
+    it('shows list of available tags as options for tag filter', function () {
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+        expect(tagSelectElem.querySelector('option[value="hello"]')).not.toBeNull()
+        expect(tagSelectElem.querySelector('option[value="world"]')).not.toBeNull()
     })
 })

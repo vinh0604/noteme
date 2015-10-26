@@ -6,7 +6,7 @@ import NoteList from './NoteList'
 export default class Sidebar extends React.Component {
     render() {
         return (<div>
-                    <Topbar notes={this.props.notes}/>
+                    <Topbar tags={this.props.tags}/>
                     <NoteList notes={this.props.notes}/>
                 </div>);
     }
