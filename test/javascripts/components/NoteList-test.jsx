@@ -5,16 +5,18 @@ import NoteList from '../../../src/javascripts/components/NoteList'
 import $ from 'jquery'
 window.jQuery = $
 require('jasmine-jquery/lib/jasmine-jquery')
+import Actions from '../../../src/javascripts/actions/index'
 
 describe('noteList', () => {
     var renderedDOM, noteList;
     var exampleNotes = [
-        { id: 1, title: 'Note 1', content: 'Note content 1' },
+        { id: 1, title: 'Note 1', content: 'Note content 1', tags: ['hello'] },
         { id: 2, title: 'Note 2', content: 'Note content 2' }
     ]
+    var tags = ['hello', 'world']
 
     beforeEach(() => {
-        noteList = TestUtils.renderIntoDocument(<NoteList notes={exampleNotes} />)
+        noteList = TestUtils.renderIntoDocument(<NoteList notes={exampleNotes} tags={tags} />)
         renderedDOM = () => ReactDOM.findDOMNode(noteList)
     });
 
@@ -45,5 +47,44 @@ describe('noteList', () => {
         noteList.handleTagClick(exampleNotes[1], { top: 0 })
         noteList.handleTagClick(exampleNotes[1], { top: 0 })
         expect(tagPopUpElem).toHaveCss({ display: 'none' })
+    })
+
+    it('shows list of available tags in popup', () => {
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+        expect(tagSelectElem.querySelector('option[value="hello"]')).not.toBeNull()
+        expect(tagSelectElem.querySelector('option[value="world"]')).not.toBeNull()
+    })
+
+    it('selects tags of selected note', () => {
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+        noteList.setState( {selectedNote: exampleNotes[0]}, function () {
+            expect(tagSelectElem.querySelector('option[value="hello"]').selected).toEqual(true)
+            expect(tagSelectElem.querySelector('option[value="world"]').selected).toEqual(false)
+        } )
+    })
+
+    it('dispatches updateNote when selected tag is changed', () => {
+        spyOn(Actions, 'updateNote')
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+
+        noteList.setState( {selectedNote: exampleNotes[0]}, function () {
+            TestUtils.Simulate.change(tagSelectElem, { target: { value: ['hello', 'world'] } })
+            expect(Actions.updateNote).toHaveBeenCalledWith({ id: 1, title: 'Note 1', content: 'Note content 1', tags: ['hello', 'world'] })
+        } )
+    })
+
+    it('does not dispatch updateNote when selected note is changed', () => {
+        spyOn(Actions, 'updateNote')
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+
+        noteList.setState( {selectedNote: exampleNotes[0]}, function () {
+            noteList.setState( {selectedNote: exampleNotes[1]}, function () {
+                expect(Actions.updateNote).not.toHaveBeenCalled()
+            })
+        })
     })
 })

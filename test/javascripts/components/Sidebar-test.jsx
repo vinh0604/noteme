@@ -20,7 +20,7 @@ describe('sidebar', () => {
         expect(result).toEqual(
             <div>
                 <Topbar tags={tags}/>
-                <NoteList notes={notes}/>
+                <NoteList notes={notes} tags={tags}/>
             </div>
         );
     });

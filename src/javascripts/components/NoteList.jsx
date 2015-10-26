@@ -4,13 +4,13 @@ import Reflux from 'reflux'
 import NoteLine from './NoteLine'
 import SelectedNoteStore from '../stores/SelectedNoteStore'
 import $ from 'jquery'
+import Actions from '../actions'
 
 export default React.createClass({
     mixins: [Reflux.ListenerMixin],
     getInitialState() {
         return {
             selectedNote: {},
-            tags: this.props.tags || [],
             popupStyle: { display: 'none' }
         }
     },
@@ -36,6 +36,10 @@ export default React.createClass({
             })
         }
     },
+    onTagsChanged(event) {
+        this.state.selectedNote.tags = event.target.value
+        Actions.updateNote(this.state.selectedNote)
+    },
     render() {
         return (<div>
                     <ul>
@@ -44,9 +48,9 @@ export default React.createClass({
                         }, this)}
                     </ul>,
                     <div ref="tagPopup" className="sidebar__list__tags" style={this.state.popupStyle}>
-                        <select name="tags" id="note_tags" multiple="multiple" data-placeholder="Add some tags...">
-                            {this.state.tags.map(function (tag) {
-                                return (<option value={tag}>{tag}</option>)
+                        <select name="tags" id="note_tags" multiple="multiple" data-placeholder="Add some tags..." value={this.state.selectedNote.tags || []} onChange={this.onTagsChanged}>
+                            {this.props.tags.map(function (tag) {
+                                return (<option key={tag} value={tag}>{tag}</option>)
                             }, this)}
                         </select>
                     </div>
