@@ -10,7 +10,7 @@ function findIndex (notes, note) {
 }
 
 function nextId (notes) {
-    let maxId = _.max(notes, 'id')
+    let maxId = _(notes).pluck('id').max()
     if (maxId < 0) maxId = 0
     return maxId + 1
 }

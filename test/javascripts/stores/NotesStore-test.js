@@ -20,6 +20,9 @@ describe('NotesStore', function () {
             NotesStore.addNote()
             expect(NotesStore.notes.length).toEqual(1)
             expect(NotesStore.notes[0].id).toEqual(1)
+            NotesStore.addNote()
+            expect(NotesStore.notes.length).toEqual(2)
+            expect(NotesStore.notes[1].id).toEqual(2)
         })
 
         it('publish new note', function () {
