@@ -1,9 +1,9 @@
 import Reflux from "reflux"
-import NoteActions from "../actions/index"
+import Actions from "../actions"
 
 export default Reflux.createStore({
     init() {
-        this.listenTo(NoteActions.selectNote, this.selectNote)
+        this.listenTo(Actions.selectNote, this.selectNote)
     },
     selectNote(note) {
         this.trigger(note)

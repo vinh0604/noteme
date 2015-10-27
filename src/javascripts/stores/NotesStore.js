@@ -1,7 +1,7 @@
 import Reflux from "reflux"
 import _ from 'lodash'
 import Fuse from 'fuse.js'
-import NoteActions from "../actions/index"
+import Actions from "../actions"
 
 function findIndex (notes, note) {
     return _.findIndex(notes, function (n) {
@@ -38,6 +38,12 @@ export default Reflux.createStore({
         this.notes = []
         this.keyword = ''
         this.filteredTags = []
+
+        this.listenTo(Actions.addNote, this.addNote)
+        this.listenTo(Actions.deleteNote, this.deleteNote)
+        this.listenTo(Actions.archiveNote, this.archiveNote)
+        this.listenTo(Actions.saveNote, this.saveNote)
+        this.listenTo(Actions.searchNote, this.searchNote)
     },
     addNote() {
         let newNote = {
@@ -47,7 +53,7 @@ export default Reflux.createStore({
             tags: []
         }
         this.notes.push(newNote)
-        this.trigger(this.notes)
+        this.publish()
     },
     deleteNote(note) {
         let index = findIndex(this.notes, note);
