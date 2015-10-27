@@ -38,7 +38,7 @@ export default React.createClass({
     },
     onTagsChanged(event) {
         this.state.selectedNote.tags = event.target.value
-        Actions.updateNote(this.state.selectedNote)
+        Actions.saveNote(this.state.selectedNote)
     },
     render() {
         return (<div>

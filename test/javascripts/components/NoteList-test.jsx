@@ -65,25 +65,25 @@ describe('noteList', () => {
         } )
     })
 
-    it('dispatches updateNote when selected tag is changed', () => {
-        spyOn(Actions, 'updateNote')
+    it('dispatches saveNote when selected tag is changed', () => {
+        spyOn(Actions, 'saveNote')
         let rootElem = renderedDOM()
         let tagSelectElem = rootElem.querySelector('select[name="tags"]')
 
         noteList.setState( {selectedNote: exampleNotes[0]}, function () {
             TestUtils.Simulate.change(tagSelectElem, { target: { value: ['hello', 'world'] } })
-            expect(Actions.updateNote).toHaveBeenCalledWith({ id: 1, title: 'Note 1', content: 'Note content 1', tags: ['hello', 'world'] })
+            expect(Actions.saveNote).toHaveBeenCalledWith({ id: 1, title: 'Note 1', content: 'Note content 1', tags: ['hello', 'world'] })
         } )
     })
 
-    it('does not dispatch updateNote when selected note is changed', () => {
-        spyOn(Actions, 'updateNote')
+    it('does not dispatch saveNote when selected note is changed', () => {
+        spyOn(Actions, 'saveNote')
         let rootElem = renderedDOM()
         let tagSelectElem = rootElem.querySelector('select[name="tags"]')
 
         noteList.setState( {selectedNote: exampleNotes[0]}, function () {
             noteList.setState( {selectedNote: exampleNotes[1]}, function () {
-                expect(Actions.updateNote).not.toHaveBeenCalled()
+                expect(Actions.saveNote).not.toHaveBeenCalled()
             })
         })
     })
