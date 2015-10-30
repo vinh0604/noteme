@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TestUtils from 'react/lib/ReactTestUtils'
 import MainPanel from '../../../src/javascripts/components/MainPanel'
-import NoteView from '../../../src/javascripts/components/NoteView'
-import NoteForm from '../../../src/javascripts/components/NoteForm'
+import SelectedNoteStore from '../../../src/javascripts/stores/SelectedNoteStore'
 import $ from 'jquery'
 window.jQuery = $
 require('jasmine-jquery/lib/jasmine-jquery')
@@ -13,19 +12,17 @@ describe('mainPanel', () => {
     var mainPanel, renderedDOM, renderer;
 
     beforeEach(() => {
+        mainPanel = TestUtils.renderIntoDocument(<MainPanel />)
+        mainPanel.setState({ note: note })
         renderedDOM = () => ReactDOM.findDOMNode(mainPanel)
     })
 
     it('renders note view by default', () => {
-        renderer = TestUtils.createRenderer()
-        renderer.render(<MainPanel note={note} />)
-        let result = renderer.getRenderOutput()
-
-        expect(result.props.children.type).toEqual(NoteView)
+        let rootElem = renderedDOM()
+        expect(rootElem.querySelector('h4').innerText).toEqual('Note 1')
     })
 
     it('renders note form when user click on note view title', () => {
-        mainPanel = TestUtils.renderIntoDocument(<MainPanel note={note} />)
         let rootElem = renderedDOM()
         TestUtils.Simulate.click(rootElem.querySelector('h4'))
 
@@ -36,8 +33,22 @@ describe('mainPanel', () => {
     })
 
     it('does not render the view if there is no note', function () {
-        mainPanel = TestUtils.renderIntoDocument(<MainPanel note={null} />)
+        mainPanel.setState({ note: null })
         let rootElem = renderedDOM()
         expect(rootElem.innerHTML).toEqual('')
+    })
+
+    it('shows selected note in note view if title is not blank', () => {
+        mainPanel.setState({ note: null })
+        SelectedNoteStore.trigger(note)
+        let rootElem = renderedDOM()
+        expect(rootElem.querySelector('h4').innerText).toEqual('Note 1')
+    })
+
+    it('shows selected note in note form if title is blank', () => {
+        mainPanel.setState({ note: null })
+        SelectedNoteStore.trigger({ title: '' })
+        let rootElem = renderedDOM()
+        expect(rootElem.querySelector('input[name="title"]')).toExist()
     })
 })

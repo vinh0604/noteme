@@ -76,4 +76,10 @@ describe('noteLine', () => {
         TestUtils.Simulate.click(tagBtn)
         expect(spy).toHaveBeenCalledWith(note, $(rootElem).position())
     })
+
+    it('render New Note if note title is blank', () => {
+        noteLine = TestUtils.renderIntoDocument(<NoteLine note={{title: '', content: ''}} onTagClick={spy} />)
+        let rootElem = renderedDOM()
+        expect(rootElem.querySelector('h4').textContent).toEqual("New Note")
+    })
 })
