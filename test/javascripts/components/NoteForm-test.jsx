@@ -30,7 +30,7 @@ describe('noteForm', function () {
         spyOn(Actions, 'saveNote')
         let rootElem = renderedDOM()
         let titleElem = rootElem.querySelector('input[name="title"]')
-        titleElem.value = "Note 123"
+        TestUtils.Simulate.change(titleElem, { target: { value: "Note 123" } })
         TestUtils.Simulate.blur(titleElem)
         expect(Actions.saveNote).toHaveBeenCalledWith({
             title: 'Note 123',
@@ -42,7 +42,7 @@ describe('noteForm', function () {
         spyOn(Actions, 'saveNote')
         let rootElem = renderedDOM()
         let contentElem = rootElem.querySelector('textarea[name="content"]')
-        contentElem.value = "Note **content** 123"
+        TestUtils.Simulate.change(contentElem, { target: { value: "Note **content** 123" } })
         TestUtils.Simulate.blur(contentElem)
         expect(Actions.saveNote).toHaveBeenCalledWith({
             title: 'Note 1',
