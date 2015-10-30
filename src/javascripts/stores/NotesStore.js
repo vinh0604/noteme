@@ -52,7 +52,7 @@ export default Reflux.createStore({
             content: '',
             tags: []
         }
-        this.notes.push(newNote)
+        this.notes.unshift(newNote)
         this.publish()
     },
     deleteNote(note) {
@@ -73,7 +73,7 @@ export default Reflux.createStore({
         let index = findIndex(this.notes, note)
         if (index >= 0) {
             this.notes.splice(index, 1, note)
-            this.publish()
+            this.publish(true)
         }
     },
     searchNote(keyword, filteredTags) {
@@ -81,7 +81,7 @@ export default Reflux.createStore({
         this.filteredTags = (filteredTags || [])
         this.publish()
     },
-    publish() {
-        this.trigger(filterNote(this.notes, this.keyword, this.filteredTags))
+    publish(keepState = false) {
+        this.trigger(filterNote(this.notes, this.keyword, this.filteredTags), keepState)
     }
 })

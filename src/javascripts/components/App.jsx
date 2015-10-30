@@ -10,9 +10,9 @@ export default React.createClass({
     getInitialState() {
         return { notes: [], tags: [] }
     },
-    onNotesChange(notes) {
+    onNotesChange(notes, keepSelected) {
         this.setState({ notes: notes }, function () {
-            Actions.selectNote(notes[0])
+            if (!keepSelected) Actions.selectNote(notes[0])
         })
     },
     render() {

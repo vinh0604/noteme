@@ -22,7 +22,7 @@ describe('app', () => {
         expect(rootElem.querySelectorAll('li.sidebar__item').length).toEqual(1)
     })
 
-    it('trigger selectNote on first note', function () {
+    it('triggers selectNote on first note if keepSelected is false', function () {
         spyOn(Actions, 'selectNote')
         let rootElem = renderedDOM()
         var notes = [
@@ -32,5 +32,17 @@ describe('app', () => {
         ]
         NotesStore.trigger(notes)
         expect(Actions.selectNote).toHaveBeenCalledWith(notes[0])
+    })
+
+    it('does not triggers selectNote if keepSelected is true', function () {
+        spyOn(Actions, 'selectNote')
+        let rootElem = renderedDOM()
+        var notes = [
+            { id: 1, title: 'Note 1', content: 'Note **content** 1' },
+
+            { id: 2, title: 'Note 2', content: 'Note **content** 2' },
+        ]
+        NotesStore.trigger(notes, true)
+        expect(Actions.selectNote).not.toHaveBeenCalled()
     })
 })

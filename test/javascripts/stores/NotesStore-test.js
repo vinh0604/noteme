@@ -22,12 +22,12 @@ describe('NotesStore', function () {
             expect(NotesStore.notes[0].id).toEqual(1)
             NotesStore.addNote()
             expect(NotesStore.notes.length).toEqual(2)
-            expect(NotesStore.notes[1].id).toEqual(2)
+            expect(NotesStore.notes[0].id).toEqual(2)
         })
 
         it('publish new note', function () {
             NotesStore.addNote()
-            expect(NotesStore.trigger).toHaveBeenCalledWith(NotesStore.notes)
+            expect(NotesStore.trigger).toHaveBeenCalledWith(NotesStore.notes, false)
         })
     })
 
@@ -41,7 +41,7 @@ describe('NotesStore', function () {
         it('does not publish deleted note', function () {
             NotesStore.notes = notes
             NotesStore.deleteNote(notes[0])
-            expect(NotesStore.trigger).toHaveBeenCalledWith([{ id: 2, title: 'Note 2', content: 'Note 2' }])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([{ id: 2, title: 'Note 2', content: 'Note 2' }], false)
         })
     })
 
@@ -55,7 +55,7 @@ describe('NotesStore', function () {
         it('does not publish archived note', function () {
             NotesStore.notes = notes
             NotesStore.archiveNote(notes[0])
-            expect(NotesStore.trigger).toHaveBeenCalledWith([{ id: 2, title: 'Note 2', content: 'Note 2' }])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([{ id: 2, title: 'Note 2', content: 'Note 2' }], false)
         })
     })
 
@@ -67,11 +67,11 @@ describe('NotesStore', function () {
             expect(NotesStore.notes[1]).toEqual(note)
         })
 
-        it('publish updated note', function () {
+        it('publish updated note with keep state', function () {
             NotesStore.notes = [notes[1]]
             let note = { id: 2, title: 'Note 2 updated', content: 'Note 2 content updated' }
             NotesStore.saveNote(note)
-            expect(NotesStore.trigger).toHaveBeenCalledWith([note])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([note], true)
         })
     })
 
@@ -88,26 +88,26 @@ describe('NotesStore', function () {
             NotesStore.notes = notes
             NotesStore.notes[0].tags = ['hello']
             NotesStore.searchNote('', ['hello', 'world'])
-            expect(NotesStore.trigger).toHaveBeenCalledWith([NotesStore.notes[0]])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([NotesStore.notes[0]], false)
         })
 
         it('publishes all notes when filtered tags empty', function () {
             NotesStore.notes = notes
             NotesStore.searchNote('', [])
-            expect(NotesStore.trigger).toHaveBeenCalledWith(NotesStore.notes)
+            expect(NotesStore.trigger).toHaveBeenCalledWith(NotesStore.notes, false)
         })
 
         it('publishes only matching notes when keyword not blank', function () {
             NotesStore.notes = notes
             NotesStore.notes[0].title = 'Lorem ipsum'
             NotesStore.searchNote('lorem ipsum', [])
-            expect(NotesStore.trigger).toHaveBeenCalledWith([NotesStore.notes[0]])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([NotesStore.notes[0]], false)
         })
 
         it('publishes all notes when keyword blank', function () {
             NotesStore.notes = notes
             NotesStore.searchNote('', [])
-            expect(NotesStore.trigger).toHaveBeenCalledWith(NotesStore.notes)
+            expect(NotesStore.trigger).toHaveBeenCalledWith(NotesStore.notes, false)
         })
     })
 
@@ -116,7 +116,7 @@ describe('NotesStore', function () {
             NotesStore.notes = notes
             NotesStore.notes[0].archived = true
             NotesStore.publish()
-            expect(NotesStore.trigger).toHaveBeenCalledWith([{ id: 2, title: 'Note 2', content: 'Note 2' }])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([{ id: 2, title: 'Note 2', content: 'Note 2' }], false)
         })
 
         it('publishes only matching & filtered notes', function () {
@@ -126,7 +126,7 @@ describe('NotesStore', function () {
             NotesStore.keyword = 'lorem'
             NotesStore.filteredTags = ['hello', 'world']
             NotesStore.publish()
-            expect(NotesStore.trigger).toHaveBeenCalledWith([NotesStore.notes[0]])
+            expect(NotesStore.trigger).toHaveBeenCalledWith([NotesStore.notes[0]], false)
         })
     })
 });
