@@ -18,7 +18,7 @@ describe('sidebar', () => {
         let result = renderer.getRenderOutput();
 
         expect(result).toEqual(
-            <div>
+            <div className="sidebar">
                 <Topbar tags={tags}/>
                 <NoteList notes={notes} tags={tags}/>
             </div>

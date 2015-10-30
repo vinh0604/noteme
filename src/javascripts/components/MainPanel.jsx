@@ -32,6 +32,6 @@ export default React.createClass({
             element = (<NoteView note={this.state.note} onEdit={this.toggleEditMode}/>)
         }
 
-        return (<div>{element}</div>);
+        return (<div className="main">{element}</div>);
     }
 })

@@ -15,7 +15,7 @@ export default React.createClass({
         }
     },
     onSelectedNoteChange(note) {
-        this.setState({ selectedNote: note })
+        this.setState({ selectedNote: note || {} })
     },
     componentDidMount() {
         this.listenTo(SelectedNoteStore, this.onSelectedNoteChange)
@@ -41,8 +41,8 @@ export default React.createClass({
         Actions.saveNote(this.state.selectedNote)
     },
     render() {
-        return (<div>
-                    <ul>
+        return (<div className="sidebar__list-container">
+                    <ul className="sidebar__list">
                         {this.props.notes.map(function (note) {
                             return (<NoteLine key={note.id} note={note} selected={note.id === this.state.selectedNote.id} onTagClick={this.handleTagClick} />);
                         }, this)}

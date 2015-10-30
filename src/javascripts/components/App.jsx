@@ -16,7 +16,7 @@ export default React.createClass({
         })
     },
     render() {
-        return (<div>
+        return (<div className="container">
                     <Sidebar notes={this.state.notes} tags={this.state.tags} />
                     <MainPanel />
                 </div>);

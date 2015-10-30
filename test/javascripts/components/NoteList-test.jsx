@@ -6,6 +6,7 @@ import $ from 'jquery'
 window.jQuery = $
 require('jasmine-jquery/lib/jasmine-jquery')
 import Actions from '../../../src/javascripts/actions/index'
+import SelectedNoteStore from '../../../src/javascripts/stores/SelectedNoteStore'
 
 describe('noteList', () => {
     var renderedDOM, noteList;
@@ -86,5 +87,12 @@ describe('noteList', () => {
                 expect(Actions.saveNote).not.toHaveBeenCalled()
             })
         })
+    })
+
+    it('use default empty note when selected note is null', function () {
+        SelectedNoteStore.trigger(null)
+        let rootElem = renderedDOM()
+        let tagSelectElem = rootElem.querySelector('select[name="tags"]')
+        expect($(tagSelectElem).find('option[selected]').length).toEqual(0)
     })
 })

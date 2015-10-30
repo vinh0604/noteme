@@ -12,9 +12,9 @@ export default class NoteForm extends React.Component {
     }
 
     render() {
-        return (<div>
-                    <input defaultValue={this.props.note.title} name="title" ref="title" id="title" onBlur={this.saveNote.bind(this)} />
-                    <textarea name="content" onBlur={this.saveNote.bind(this)} ref="content" id="content" defaultValue={this.props.note.content}></textarea>
+        return (<div className="main__form">
+                    <input defaultValue={this.props.note.title} name="title" ref="title" id="title" onBlur={this.saveNote.bind(this)} className="main__form__input-title" />
+                    <textarea name="content" onBlur={this.saveNote.bind(this)} ref="content" id="content" defaultValue={this.props.note.content} className="main__form__input-content"></textarea>
                 </div>)
     }
 }
